@@ -1,1 +1,1 @@
-# practice_github_page
+a repo to practice github project page
