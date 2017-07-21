@@ -86,7 +86,7 @@
 										<header>
 											<h3>吳宗達</h3>
 										</header>
-										<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
+										<p id="cthbst_cf_rating">cf_rating</p>
 									</section>
 
 								</div>
@@ -99,7 +99,7 @@
 
 										</header>
 
-										<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
+										<p id="ggh93234999_cf_rating">cf_rating</p>
 									</section>
 
 
@@ -118,7 +118,7 @@
 
 										</header>
 
-										<p>Sed tristique purus vitae volutpat ultrices. Aliquam eu elit eget arcu commodo suscipit dolor nec nibh. Proin a ullamcorper elit, et sagittis turpis. Integer ut fermentum.</p>
+										<p id="yqkqknct_cf_rating">cf_rating</p>
 
 									</section>
 
@@ -185,6 +185,24 @@
 			    border-radius: 50%;
 			}
 			</style>
+			<script>
+				var url = "http://codeforces.com/api/user.info?handles=" + "cthbst" + ";ggh93234999" + ";yqkqknct";
+
+				fetch(url, {mode: 'cors'})  
+				.then(function(response) {
+					return response.text();  
+				})  
+				.then(function(text) {
+					var result = JSON.parse(text).result;
+
+					document.getElementById("cthbst_cf_rating").innerHTML 
+						= "Codeforces: " + JSON.stringify(result[0].rating);
+					document.getElementById("ggh93234999_cf_rating").innerHTML 
+						= "Codeforces: " + JSON.stringify(result[1].rating);
+					document.getElementById("yqkqknct_cf_rating").innerHTML 
+						= "Codeforces: " + JSON.stringify(result[2].rating);
+				});
+			</script>
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.dropotron.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
@@ -193,6 +211,5 @@
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
-
 	</body>
 </html>
